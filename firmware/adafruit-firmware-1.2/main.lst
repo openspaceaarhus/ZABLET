@@ -1,0 +1,525 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.text
+   9               	.global	read_bits
+  11               	read_bits:
+  12 0000 0F93      		push r16
+  13 0002 1F93      		push r17
+  14               	/* prologue: function */
+  15               	/* frame size = 0 */
+  16 0004 082F      		mov r16,r24
+  17 0006 A091 0000 		lds r26,code_ptr
+  18 000a B091 0000 		lds r27,(code_ptr)+1
+  19 000e F091 0000 		lds r31,bits_r
+  20 0012 E091 0000 		lds r30,bitsleft_r
+  21 0016 10E0      		ldi r17,lo8(0)
+  22 0018 40E0      		ldi r20,lo8(0)
+  23 001a 50E0      		ldi r21,hi8(0)
+  24 001c 682F      		mov r22,r24
+  25 001e 70E0      		ldi r23,lo8(0)
+  26 0020 6150      		subi r22,lo8(-(-1))
+  27 0022 7040      		sbci r23,hi8(-(-1))
+  28 0024 00C0      		rjmp .L2
+  29               	.L4:
+  30 0026 EE23      		tst r30
+  31 0028 01F4      		brne .L3
+  32 002a FD01      		movw r30,r26
+  33 002c 1196      		adiw r26,1
+  34               	/* #APP */
+  35               	 ;  148 "main.c" 1
+  36 002e F491      		lpm r31, Z
+  37               		
+  38               	 ;  0 "" 2
+  39               	/* #NOAPP */
+  40 0030 E8E0      		ldi r30,lo8(8)
+  41               	.L3:
+  42 0032 E150      		subi r30,lo8(-(-1))
+  43 0034 8F2F      		mov r24,r31
+  44 0036 90E0      		ldi r25,lo8(0)
+  45 0038 0E2E      		mov r0,r30
+  46 003a 00C0      		rjmp 2f
+  47 003c 9595      	1:	asr r25
+  48 003e 8795      		ror r24
+  49 0040 0A94      	2:	dec r0
+  50 0042 02F4      		brpl 1b
+  51 0044 8170      		andi r24,lo8(1)
+  52 0046 9070      		andi r25,hi8(1)
+  53 0048 9B01      		movw r18,r22
+  54 004a 241B      		sub r18,r20
+  55 004c 350B      		sbc r19,r21
+  56 004e 00C0      		rjmp 2f
+  57 0050 880F      	1:	lsl r24
+  58 0052 991F      		rol r25
+  59 0054 2A95      	2:	dec r18
+  60 0056 02F4      		brpl 1b
+  61 0058 182B      		or r17,r24
+  62 005a 4F5F      		subi r20,lo8(-(1))
+  63 005c 5F4F      		sbci r21,hi8(-(1))
+  64               	.L2:
+  65 005e 4017      		cp r20,r16
+  66 0060 00F0      		brlo .L4
+  67 0062 B093 0000 		sts (code_ptr)+1,r27
+  68 0066 A093 0000 		sts code_ptr,r26
+  69 006a F093 0000 		sts bits_r,r31
+  70 006e E093 0000 		sts bitsleft_r,r30
+  71 0072 812F      		mov r24,r17
+  72               	/* epilogue start */
+  73 0074 1F91      		pop r17
+  74 0076 0F91      		pop r16
+  75 0078 0895      		ret
+  77               	.global	__vector_2
+  79               	__vector_2:
+  80 007a 1F92      		push __zero_reg__
+  81 007c 0F92      		push r0
+  82 007e 0FB6      		in r0,__SREG__
+  83 0080 0F92      		push r0
+  84 0082 1124      		clr __zero_reg__
+  85               	/* prologue: Signal */
+  86               	/* frame size = 0 */
+  87               	/* epilogue start */
+  88 0084 0F90      		pop r0
+  89 0086 0FBE      		out __SREG__,r0
+  90 0088 0F90      		pop r0
+  91 008a 1F90      		pop __zero_reg__
+  92 008c 1895      		reti
+  94               	.global	delay_ten_us
+  96               	delay_ten_us:
+  97               	/* prologue: function */
+  98               	/* frame size = 0 */
+  99 008e 00C0      		rjmp .L9
+ 100               	.L11:
+ 101 0090 20E0      		ldi r18,lo8(0)
+ 102               	.L10:
+ 103               	/* #APP */
+ 104               	 ;  394 "main.c" 1
+ 105 0092 0000      		nop
+ 106               	 ;  0 "" 2
+ 107               	 ;  395 "main.c" 1
+ 108 0094 0000      		nop
+ 109               	 ;  0 "" 2
+ 110               	/* #NOAPP */
+ 111 0096 2F5F      		subi r18,lo8(-(1))
+ 112 0098 2C30      		cpi r18,lo8(12)
+ 113 009a 01F4      		brne .L10
+ 114               	/* #APP */
+ 115               	 ;  397 "main.c" 1
+ 116 009c 0000      		nop
+ 117               	 ;  0 "" 2
+ 118               	/* #NOAPP */
+ 119 009e 0197      		sbiw r24,1
+ 120               	.L9:
+ 121 00a0 0097      		sbiw r24,0
+ 122 00a2 01F4      		brne .L11
+ 123               	/* epilogue start */
+ 124 00a4 0895      		ret
+ 126               	.global	powerDown
+ 128               	powerDown:
+ 129               	/* prologue: function */
+ 130               	/* frame size = 0 */
+ 131 00a6 10BE      		out 80-32,__zero_reg__
+ 132 00a8 13BE      		out 83-32,__zero_reg__
+ 133 00aa C29A      		sbi 56-32,2
+ 134 00ac 88E1      		ldi r24,lo8(24)
+ 135               	/* #APP */
+ 136               	 ;  373 "main.c" 1
+ 137 00ae 0FB6      		in __tmp_reg__, __SREG__
+ 138 00b0 F894      		cli
+ 139 00b2 81BD      		out 33, r24
+ 140 00b4 11BC      		out 33, __zero_reg__
+ 141 00b6 0FBE      		out __SREG__,__tmp_reg__
+ 142               		
+ 143               	 ;  0 "" 2
+ 144               	/* #NOAPP */
+ 145 00b8 88EE      		ldi r24,lo8(1000)
+ 146 00ba 93E0      		ldi r25,hi8(1000)
+ 147 00bc 00D0      		rcall delay_ten_us
+ 148 00be 80E3      		ldi r24,lo8(48)
+ 149 00c0 85BF      		out 85-32,r24
+ 150               	/* #APP */
+ 151               	 ;  377 "main.c" 1
+ 152 00c2 8895      		sleep
+ 153               		
+ 154               	 ;  0 "" 2
+ 155               	/* epilogue start */
+ 156               	/* #NOAPP */
+ 157 00c4 0895      		ret
+ 159               	.global	xmitCodeElement
+ 161               	xmitCodeElement:
+ 162 00c6 CF93      		push r28
+ 163 00c8 DF93      		push r29
+ 164               	/* prologue: function */
+ 165               	/* frame size = 0 */
+ 166 00ca 9C01      		movw r18,r24
+ 167 00cc EB01      		movw r28,r22
+ 168 00ce 12BE      		out 82-32,__zero_reg__
+ 169 00d0 18BE      		out 88-32,__zero_reg__
+ 170 00d2 4423      		tst r20
+ 171 00d4 01F0      		breq .L17
+ 172 00d6 82E4      		ldi r24,lo8(66)
+ 173 00d8 80BF      		out 80-32,r24
+ 174 00da 81E0      		ldi r24,lo8(1)
+ 175 00dc 83BF      		out 83-32,r24
+ 176 00de 00C0      		rjmp .L18
+ 177               	.L17:
+ 178 00e0 C298      		cbi 56-32,2
+ 179               	.L18:
+ 180 00e2 C901      		movw r24,r18
+ 181 00e4 00D0      		rcall delay_ten_us
+ 182 00e6 10BE      		out 80-32,__zero_reg__
+ 183 00e8 13BE      		out 83-32,__zero_reg__
+ 184 00ea C29A      		sbi 56-32,2
+ 185 00ec CE01      		movw r24,r28
+ 186 00ee 00D0      		rcall delay_ten_us
+ 187               	/* epilogue start */
+ 188 00f0 DF91      		pop r29
+ 189 00f2 CF91      		pop r28
+ 190 00f4 0895      		ret
+ 192               	.global	quickflashLED
+ 194               	quickflashLED:
+ 195               	/* prologue: function */
+ 196               	/* frame size = 0 */
+ 197 00f6 D79A      		sbi 58-32,7
+ 198 00f8 88EB      		ldi r24,lo8(3000)
+ 199 00fa 9BE0      		ldi r25,hi8(3000)
+ 200 00fc 00D0      		rcall delay_ten_us
+ 201 00fe D798      		cbi 58-32,7
+ 202               	/* epilogue start */
+ 203 0100 0895      		ret
+ 205               	.global	quickflashLEDx
+ 207               	quickflashLEDx:
+ 208 0102 1F93      		push r17
+ 209               	/* prologue: function */
+ 210               	/* frame size = 0 */
+ 211 0104 182F      		mov r17,r24
+ 212 0106 00C0      		rjmp .L26
+ 213               	.L24:
+ 214               	/* #APP */
+ 215               	 ;  416 "main.c" 1
+ 216 0108 A895      		wdr
+ 217               	 ;  0 "" 2
+ 218               	/* #NOAPP */
+ 219 010a 88E9      		ldi r24,lo8(15000)
+ 220 010c 9AE3      		ldi r25,hi8(15000)
+ 221 010e 00D0      		rcall delay_ten_us
+ 222               	.L26:
+ 223 0110 00D0      		rcall quickflashLED
+ 224 0112 1150      		subi r17,lo8(-(-1))
+ 225 0114 01F4      		brne .L24
+ 226               	/* #APP */
+ 227               	 ;  420 "main.c" 1
+ 228 0116 A895      		wdr
+ 229               	 ;  0 "" 2
+ 230               	/* epilogue start */
+ 231               	/* #NOAPP */
+ 232 0118 1F91      		pop r17
+ 233 011a 0895      		ret
+ 235               	.global	turnOffTVs
+ 237               	turnOffTVs:
+ 238 011c 7F92      		push r7
+ 239 011e 8F92      		push r8
+ 240 0120 9F92      		push r9
+ 241 0122 AF92      		push r10
+ 242 0124 BF92      		push r11
+ 243 0126 CF92      		push r12
+ 244 0128 DF92      		push r13
+ 245 012a EF92      		push r14
+ 246 012c FF92      		push r15
+ 247 012e 0F93      		push r16
+ 248 0130 1F93      		push r17
+ 249 0132 CF93      		push r28
+ 250 0134 DF93      		push r29
+ 251               	/* prologue: function */
+ 252               	/* frame size = 0 */
+ 253 0136 88EA      		ldi r24,lo8(25000)
+ 254 0138 91E6      		ldi r25,hi8(25000)
+ 255 013a 00D0      		rcall delay_ten_us
+ 256 013c A090 0000 		lds r10,num_EUcodes
+ 257 0140 7A2C      		mov r7,r10
+ 258 0142 7694      		lsr r7
+ 259 0144 7694      		lsr r7
+ 260 0146 7694      		lsr r7
+ 261 0148 C0E0      		ldi r28,lo8(EUpowerCodes)
+ 262 014a D0E0      		ldi r29,hi8(EUpowerCodes)
+ 263 014c 00E0      		ldi r16,lo8(0)
+ 264 014e 81E0      		ldi r24,lo8(1)
+ 265 0150 882E      		mov r8,r24
+ 266 0152 912C      		mov r9,__zero_reg__
+ 267 0154 00C0      		rjmp .L28
+ 268               	.L33:
+ 269 0156 802F      		mov r24,r16
+ 270 0158 672D      		mov r22,r7
+ 271 015a 00D0      		rcall __udivmodqi4
+ 272 015c 9401      		movw r18,r8
+ 273 015e 00C0      		rjmp 2f
+ 274 0160 220F      	1:	lsl r18
+ 275 0162 331F      		rol r19
+ 276 0164 8A95      	2:	dec r24
+ 277 0166 02F4      		brpl 1b
+ 278 0168 822F      		mov r24,r18
+ 279 016a 8150      		subi r24,lo8(-(-1))
+ 280 016c 00FD      		sbrc r16,0
+ 281 016e 822B      		or r24,r18
+ 282               	.L29:
+ 283 0170 8ABB      		out 58-32,r24
+ 284               	/* #APP */
+ 285               	 ;  279 "main.c" 1
+ 286 0172 A895      		wdr
+ 287               	 ;  0 "" 2
+ 288               	/* #NOAPP */
+ 289 0174 FE01      		movw r30,r28
+ 290               	/* #APP */
+ 291               	 ;  285 "main.c" 1
+ 292 0176 4591      		lpm r20, Z+
+ 293 0178 5491      		lpm r21, Z
+ 294               		
+ 295               	 ;  0 "" 2
+ 296               	/* #NOAPP */
+ 297 017a 9A01      		movw r18,r20
+ 298 017c 2F5F      		subi r18,lo8(-(1))
+ 299 017e 3F4F      		sbci r19,hi8(-(1))
+ 300 0180 FA01      		movw r30,r20
+ 301               	/* #APP */
+ 302               	 ;  289 "main.c" 1
+ 303 0182 D490      		lpm r13, Z
+ 304               		
+ 305               	 ;  0 "" 2
+ 306               	/* #NOAPP */
+ 307 0184 D6BE      		out 86-32,r13
+ 308 0186 C901      		movw r24,r18
+ 309 0188 0196      		adiw r24,1
+ 310 018a F901      		movw r30,r18
+ 311               	/* #APP */
+ 312               	 ;  298 "main.c" 1
+ 313 018c B490      		lpm r11, Z
+ 314               		
+ 315               	 ;  0 "" 2
+ 316               	/* #NOAPP */
+ 317 018e FC01      		movw r30,r24
+ 318               	/* #APP */
+ 319               	 ;  303 "main.c" 1
+ 320 0190 C490      		lpm r12, Z
+ 321               		
+ 322               	 ;  0 "" 2
+ 323               	/* #NOAPP */
+ 324 0192 0196      		adiw r24,1
+ 325 0194 FC01      		movw r30,r24
+ 326               	/* #APP */
+ 327               	 ;  308 "main.c" 1
+ 328 0196 E590      		lpm r14, Z+
+ 329 0198 F490      		lpm r15, Z
+ 330               		
+ 331               	 ;  0 "" 2
+ 332               	/* #NOAPP */
+ 333 019a 4B5F      		subi r20,lo8(-(5))
+ 334 019c 5F4F      		sbci r21,hi8(-(5))
+ 335 019e 5093 0000 		sts (code_ptr)+1,r21
+ 336 01a2 4093 0000 		sts code_ptr,r20
+ 337 01a6 10E0      		ldi r17,lo8(0)
+ 338 01a8 00C0      		rjmp .L30
+ 339               	.L32:
+ 340 01aa 8C2D      		mov r24,r12
+ 341 01ac 00D0      		rcall read_bits
+ 342 01ae 880F      		lsl r24
+ 343 01b0 880F      		lsl r24
+ 344 01b2 90E0      		ldi r25,lo8(0)
+ 345 01b4 F701      		movw r30,r14
+ 346 01b6 E80F      		add r30,r24
+ 347 01b8 F91F      		adc r31,r25
+ 348               	/* #APP */
+ 349               	 ;  341 "main.c" 1
+ 350 01ba 2591      		lpm r18, Z+
+ 351 01bc 3491      		lpm r19, Z
+ 352               		
+ 353               	 ;  0 "" 2
+ 354               	/* #NOAPP */
+ 355 01be FC01      		movw r30,r24
+ 356 01c0 3296      		adiw r30,2
+ 357 01c2 EE0D      		add r30,r14
+ 358 01c4 FF1D      		adc r31,r15
+ 359               	/* #APP */
+ 360               	 ;  342 "main.c" 1
+ 361 01c6 6591      		lpm r22, Z+
+ 362 01c8 7491      		lpm r23, Z
+ 363               		
+ 364               	 ;  0 "" 2
+ 365               	/* #NOAPP */
+ 366 01ca 40E0      		ldi r20,lo8(0)
+ 367 01cc D110      		cpse r13,__zero_reg__
+ 368 01ce 41E0      		ldi r20,lo8(1)
+ 369               	.L31:
+ 370 01d0 C901      		movw r24,r18
+ 371 01d2 00D0      		rcall xmitCodeElement
+ 372 01d4 1F5F      		subi r17,lo8(-(1))
+ 373               	.L30:
+ 374 01d6 1B15      		cp r17,r11
+ 375 01d8 00F0      		brlo .L32
+ 376 01da 1092 0000 		sts bitsleft_r,__zero_reg__
+ 377 01de 88E8      		ldi r24,lo8(5000)
+ 378 01e0 93E1      		ldi r25,hi8(5000)
+ 379 01e2 00D0      		rcall delay_ten_us
+ 380 01e4 0F5F      		subi r16,lo8(-(1))
+ 381 01e6 2296      		adiw r28,2
+ 382               	.L28:
+ 383 01e8 0A15      		cp r16,r10
+ 384 01ea 00F4      		brsh .+2
+ 385 01ec 00C0      		rjmp .L33
+ 386 01ee 1ABA      		out 58-32,__zero_reg__
+ 387 01f0 8CED      		ldi r24,lo8(-36)
+ 388 01f2 9FEF      		ldi r25,hi8(-36)
+ 389 01f4 00D0      		rcall delay_ten_us
+ 390 01f6 8CED      		ldi r24,lo8(-36)
+ 391 01f8 9FEF      		ldi r25,hi8(-36)
+ 392 01fa 00D0      		rcall delay_ten_us
+ 393 01fc 84E0      		ldi r24,lo8(4)
+ 394 01fe 00D0      		rcall quickflashLEDx
+ 395               	/* epilogue start */
+ 396 0200 DF91      		pop r29
+ 397 0202 CF91      		pop r28
+ 398 0204 1F91      		pop r17
+ 399 0206 0F91      		pop r16
+ 400 0208 FF90      		pop r15
+ 401 020a EF90      		pop r14
+ 402 020c DF90      		pop r13
+ 403 020e CF90      		pop r12
+ 404 0210 BF90      		pop r11
+ 405 0212 AF90      		pop r10
+ 406 0214 9F90      		pop r9
+ 407 0216 8F90      		pop r8
+ 408 0218 7F90      		pop r7
+ 409 021a 0895      		ret
+ 411               	.global	flashslowLEDx
+ 413               	flashslowLEDx:
+ 414 021c 0F93      		push r16
+ 415 021e 1F93      		push r17
+ 416               	/* prologue: function */
+ 417               	/* frame size = 0 */
+ 418 0220 082F      		mov r16,r24
+ 419 0222 10E0      		ldi r17,lo8(0)
+ 420 0224 00C0      		rjmp .L36
+ 421               	.L37:
+ 422 0226 D79A      		sbi 58-32,7
+ 423 0228 80E5      		ldi r24,lo8(-15536)
+ 424 022a 93EC      		ldi r25,hi8(-15536)
+ 425 022c 00D0      		rcall delay_ten_us
+ 426               	/* #APP */
+ 427               	 ;  433 "main.c" 1
+ 428 022e A895      		wdr
+ 429               	 ;  0 "" 2
+ 430               	/* #NOAPP */
+ 431 0230 D798      		cbi 58-32,7
+ 432 0232 80E5      		ldi r24,lo8(-15536)
+ 433 0234 93EC      		ldi r25,hi8(-15536)
+ 434 0236 00D0      		rcall delay_ten_us
+ 435               	/* #APP */
+ 436               	 ;  437 "main.c" 1
+ 437 0238 A895      		wdr
+ 438               	 ;  0 "" 2
+ 439               	/* #NOAPP */
+ 440 023a 1F5F      		subi r17,lo8(-(1))
+ 441               	.L36:
+ 442 023c 1017      		cp r17,r16
+ 443 023e 00F0      		brlo .L37
+ 444               	/* epilogue start */
+ 445 0240 1F91      		pop r17
+ 446 0242 0F91      		pop r16
+ 447 0244 0895      		ret
+ 449               	.global	main
+ 451               	main:
+ 452 0246 1F93      		push r17
+ 453 0248 CF93      		push r28
+ 454 024a DF93      		push r29
+ 455               	/* prologue: function */
+ 456               	/* frame size = 0 */
+ 457 024c 1BBA      		out 59-32,__zero_reg__
+ 458 024e 1FBC      		out 79-32,__zero_reg__
+ 459 0250 1EBC      		out 78-32,__zero_reg__
+ 460 0252 10BE      		out 80-32,__zero_reg__
+ 461 0254 13BE      		out 83-32,__zero_reg__
+ 462 0256 94B7      		in r25,84-32
+ 463 0258 14BE      		out 84-32,__zero_reg__
+ 464 025a 88E1      		ldi r24,lo8(24)
+ 465 025c 81BD      		out 65-32,r24
+ 466 025e 11BC      		out 65-32,__zero_reg__
+ 467 0260 84E0      		ldi r24,lo8(4)
+ 468 0262 87BB      		out 55-32,r24
+ 469 0264 88BB      		out 56-32,r24
+ 470 0266 DE98      		cbi 59-32,6
+ 471 0268 80E8      		ldi r24,lo8(-128)
+ 472 026a 82BB      		out 50-32,r24
+ 473 026c 8BB7      		in r24,91-32
+ 474 026e 8061      		ori r24,lo8(16)
+ 475 0270 8BBF      		out 91-32,r24
+ 476               	/* #APP */
+ 477               	 ;  227 "main.c" 1
+ 478 0272 7894      		sei
+ 479               	 ;  0 "" 2
+ 480               	/* #NOAPP */
+ 481 0274 92FF      		sbrs r25,2
+ 482 0276 00C0      		rjmp .L40
+ 483 0278 82E0      		ldi r24,lo8(2)
+ 484 027a 00D0      		rcall flashslowLEDx
+ 485 027c 00D0      		rcall powerDown
+ 486               	.L40:
+ 487 027e 88E8      		ldi r24,lo8(5000)
+ 488 0280 93E1      		ldi r25,hi8(5000)
+ 489 0282 00D0      		rcall delay_ten_us
+ 490 0284 C8E1      		ldi r28,lo8(24)
+ 491 0286 D0E0      		ldi r29,hi8(24)
+ 492 0288 19E2      		ldi r17,lo8(41)
+ 493               	.L41:
+ 494 028a 00D0      		rcall powerDown
+ 495               	/* #APP */
+ 496               	 ;  242 "main.c" 1
+ 497 028c 0FB6      		in __tmp_reg__,__SREG__
+ 498 028e F894      		cli
+ 499 0290 A895      		wdr
+ 500 0292 C1BD      		out 33,r28
+ 501 0294 0FBE      		out __SREG__,__tmp_reg__
+ 502 0296 11BD      		out 33,r17
+ 503               	 ;  0 "" 2
+ 504               	/* #NOAPP */
+ 505 0298 00D0      		rcall turnOffTVs
+ 506 029a 00C0      		rjmp .L41
+ 508               	.global	bitsleft_r
+ 509               	.global	bitsleft_r
+ 510               		.section .bss
+ 513               	bitsleft_r:
+ 514 0000 00        		.skip 1,0
+ 515               	.global	bits_r
+ 516               	.global	bits_r
+ 519               	bits_r:
+ 520 0001 00        		.skip 1,0
+ 521               		.comm code_ptr,2,1
+ 522               	.global __do_clear_bss
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+     /tmp/cc2pX2FL.s:2      *ABS*:000000000000003f __SREG__
+     /tmp/cc2pX2FL.s:3      *ABS*:000000000000003e __SP_H__
+     /tmp/cc2pX2FL.s:4      *ABS*:000000000000003d __SP_L__
+     /tmp/cc2pX2FL.s:5      *ABS*:0000000000000034 __CCP__
+     /tmp/cc2pX2FL.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/cc2pX2FL.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/cc2pX2FL.s:11     .text:0000000000000000 read_bits
+                            *COM*:0000000000000002 code_ptr
+     /tmp/cc2pX2FL.s:519    .bss:0000000000000001 bits_r
+     /tmp/cc2pX2FL.s:513    .bss:0000000000000000 bitsleft_r
+     /tmp/cc2pX2FL.s:79     .text:000000000000007a __vector_2
+     /tmp/cc2pX2FL.s:96     .text:000000000000008e delay_ten_us
+     /tmp/cc2pX2FL.s:128    .text:00000000000000a6 powerDown
+     /tmp/cc2pX2FL.s:161    .text:00000000000000c6 xmitCodeElement
+     /tmp/cc2pX2FL.s:194    .text:00000000000000f6 quickflashLED
+     /tmp/cc2pX2FL.s:207    .text:0000000000000102 quickflashLEDx
+     /tmp/cc2pX2FL.s:237    .text:000000000000011c turnOffTVs
+     /tmp/cc2pX2FL.s:413    .text:000000000000021c flashslowLEDx
+     /tmp/cc2pX2FL.s:451    .text:0000000000000246 main
+
+UNDEFINED SYMBOLS
+num_EUcodes
+EUpowerCodes
+__udivmodqi4
+__do_clear_bss

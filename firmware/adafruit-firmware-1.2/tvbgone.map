@@ -1,0 +1,923 @@
+Archive member included because of file (symbol)
+
+/usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_udivmodqi4.o)
+                              main.o (__udivmodqi4)
+/usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_exit.o)
+                              /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o (exit)
+/usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_copy_data.o)
+                              WORLDcodes.o (__do_copy_data)
+/usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_clear_bss.o)
+                              main.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+code_ptr            0x2               main.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x0000000000000000 0x0000000000002000 xr
+data             0x0000000000800060 0x000000000000ffa0 rw !x
+eeprom           0x0000000000810000 0x0000000000010000 rw !x
+fuse             0x0000000000820000 0x0000000000000400 rw !x
+lock             0x0000000000830000 0x0000000000000400 rw !x
+signature        0x0000000000840000 0x0000000000000400 rw !x
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+LOAD main.o
+LOAD WORLDcodes.o
+LOAD util.o
+LOAD /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/libm.a
+LOAD /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a
+LOAD /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/libc.a
+LOAD /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x0000000000000000     0x148c
+ *(.vectors)
+ .vectors       0x0000000000000000       0x22 /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+                0x0000000000000000                __vectors
+                0x0000000000000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x0000000000000022     0x117a WORLDcodes.o
+                0x0000000000000022                code_na004Times
+                0x000000000000003e                code_na004Code
+                0x0000000000000052                code_na005Times
+                0x0000000000000066                code_na005Code
+                0x0000000000000074                code_na009Times
+                0x000000000000008c                code_na009Code
+                0x00000000000000a0                code_na000Times
+                0x00000000000000b0                code_na000Code
+                0x00000000000000bc                code_na031Times
+                0x00000000000000d0                code_na031Code
+                0x00000000000000de                code_na021Times
+                0x00000000000000f2                code_na021Code
+                0x0000000000000106                code_na022Times
+                0x000000000000011e                code_na022Code
+                0x0000000000000132                code_eu000Times
+                0x000000000000014e                code_eu000Code
+                0x0000000000000162                code_eu001Times
+                0x000000000000017e                code_eu001Code
+                0x000000000000018f                code_eu002Times
+                0x000000000000019f                code_eu002Code
+                0x00000000000001ab                code_eu004Times
+                0x00000000000001bf                code_eu004Code
+                0x00000000000001ea                code_eu005Times
+                0x00000000000001fe                code_eu005Code
+                0x000000000000021b                code_eu006Times
+                0x000000000000022f                code_eu006Code
+                0x000000000000024e                code_eu007Times
+                0x000000000000025e                code_eu007Code
+                0x0000000000000270                code_eu008Code
+                0x0000000000000284                code_eu011Code
+                0x0000000000000298                code_eu012Times
+                0x00000000000002a4                code_eu012Code
+                0x00000000000002b0                code_eu013Times
+                0x00000000000002c0                code_eu013Code
+                0x00000000000002db                code_eu015Times
+                0x00000000000002ef                code_eu015Code
+                0x0000000000000327                code_eu016Times
+                0x0000000000000337                code_eu016Code
+                0x0000000000000345                code_eu017Times
+                0x0000000000000355                code_eu017Code
+                0x0000000000000360                code_eu018Code
+                0x0000000000000374                code_eu019Times
+                0x0000000000000388                code_eu019Code
+                0x000000000000039c                code_eu020Times
+                0x00000000000003ac                code_eu020Code
+                0x00000000000003ba                code_eu021Code
+                0x00000000000003ce                code_eu022Code
+                0x00000000000003e2                code_eu024Code
+                0x00000000000003f6                code_eu025Times
+                0x0000000000000416                code_eu025Code
+                0x0000000000000423                code_eu026Times
+                0x000000000000042f                code_eu026Code
+                0x000000000000043a                code_eu027Code
+                0x000000000000044e                code_eu028Times
+                0x000000000000046a                code_eu028Code
+                0x000000000000047b                code_eu029Times
+                0x000000000000049b                code_eu029Code
+                0x00000000000004b2                code_eu030Code
+                0x00000000000004c6                code_eu031Times
+                0x00000000000004d6                code_eu031Code
+                0x00000000000004e8                code_eu032Times
+                0x00000000000004f8                code_eu032Code
+                0x0000000000000504                code_eu033Times
+                0x0000000000000514                code_eu033Code
+                0x000000000000051d                code_eu034Code
+                0x0000000000000531                code_eu036Code
+                0x0000000000000545                code_eu037Times
+                0x0000000000000551                code_eu037Code
+                0x000000000000055c                code_eu038Times
+                0x0000000000000568                code_eu038Code
+                0x0000000000000570                code_eu039Times
+                0x0000000000000580                code_eu039Code
+                0x000000000000058b                code_eu040Times
+                0x000000000000059f                code_eu040Code
+                0x00000000000005b8                code_eu041Times
+                0x00000000000005cc                code_eu041Code
+                0x00000000000005dc                code_eu042Code
+                0x00000000000005f0                code_eu043Times
+                0x00000000000005f8                code_eu043Code
+                0x00000000000005fe                code_eu044Code
+                0x0000000000000612                code_eu045Times
+                0x0000000000000622                code_eu045Code
+                0x000000000000062a                code_eu046Times
+                0x000000000000063a                code_eu046Code
+                0x0000000000000643                code_eu047Times
+                0x000000000000064f                code_eu047Code
+                0x0000000000000659                code_eu048Code
+                0x000000000000066d                code_eu049Times
+                0x0000000000000685                code_eu049Code
+                0x0000000000000699                code_eu050Times
+                0x00000000000006ad                code_eu050Code
+                0x00000000000006c4                code_eu051Times
+                0x00000000000006d8                code_eu051Code
+                0x00000000000006f1                code_eu052Times
+                0x0000000000000701                code_eu052Code
+                0x000000000000070c                code_eu053Code
+                0x0000000000000715                code_eu054Times
+                0x000000000000072d                code_eu054Code
+                0x0000000000000738                code_eu055Code
+                0x000000000000074c                code_eu056Times
+                0x0000000000000758                code_eu056Code
+                0x000000000000075e                code_eu058Code
+                0x0000000000000772                code_eu059Times
+                0x000000000000077e                code_eu059Code
+                0x0000000000000784                code_eu060Times
+                0x0000000000000794                code_eu060Code
+                0x00000000000007a2                code_eu061Code
+                0x00000000000007b0                code_eu062Code
+                0x00000000000007be                code_eu063Code
+                0x00000000000007d2                code_eu064Times
+                0x00000000000007f2                code_eu064Code
+                0x0000000000000802                code_eu065Times
+                0x000000000000081e                code_eu065Code
+                0x000000000000082f                code_eu066Code
+                0x0000000000000843                code_eu067Times
+                0x000000000000084f                code_eu067Code
+                0x0000000000000857                code_eu068Times
+                0x0000000000000873                code_eu068Code
+                0x0000000000000884                code_eu069Times
+                0x0000000000000890                code_eu069Code
+                0x000000000000089b                code_eu070Code
+                0x00000000000008a6                code_eu071Times
+                0x00000000000008b2                code_eu071Code
+                0x00000000000008bd                code_eu072Times
+                0x00000000000008c9                code_eu072Code
+                0x00000000000008d4                code_eu073Code
+                0x00000000000008dd                code_eu074Code
+                0x00000000000008ec                code_eu075Times
+                0x00000000000008f8                code_eu075Code
+                0x0000000000000903                code_eu076Times
+                0x0000000000000913                code_eu076Code
+                0x000000000000091e                code_eu077Code
+                0x000000000000092f                code_eu078Times
+                0x000000000000093f                code_eu078Code
+                0x0000000000000947                code_eu079Times
+                0x000000000000095b                code_eu079Code
+                0x000000000000097a                code_eu080Times
+                0x000000000000098e                code_eu080Code
+                0x00000000000009ad                code_eu081Times
+                0x00000000000009bd                code_eu081Code
+                0x00000000000009d6                code_eu082Times
+                0x00000000000009ea                code_eu082Code
+                0x0000000000000a09                code_eu083Times
+                0x0000000000000a1d                code_eu083Code
+                0x0000000000000a2b                code_eu084Times
+                0x0000000000000a3b                code_eu084Code
+                0x0000000000000a46                code_eu085Times
+                0x0000000000000a5a                code_eu085Code
+                0x0000000000000a6e                code_eu086Times
+                0x0000000000000a82                code_eu086Code
+                0x0000000000000a90                code_eu087Times
+                0x0000000000000a9c                code_eu087Code
+                0x0000000000000aa7                code_eu088Times
+                0x0000000000000ab3                code_eu088Code
+                0x0000000000000abe                code_eu089Code
+                0x0000000000000ad2                code_eu090Times
+                0x0000000000000ae6                code_eu090Code
+                0x0000000000000af6                code_eu091Times
+                0x0000000000000b06                code_eu091Code
+                0x0000000000000b13                code_eu092Times
+                0x0000000000000b23                code_eu092Code
+                0x0000000000000b2e                code_eu093Times
+                0x0000000000000b3a                code_eu093Code
+                0x0000000000000b42                code_eu094Times
+                0x0000000000000b56                code_eu094Code
+                0x0000000000000b66                code_eu095Code
+                0x0000000000000b6f                code_eu096Times
+                0x0000000000000b8b                code_eu096Code
+                0x0000000000000b9c                code_eu097Code
+                0x0000000000000ba5                code_eu098Times
+                0x0000000000000bb5                code_eu098Code
+                0x0000000000000bc1                code_eu099Times
+                0x0000000000000bdd                code_eu099Code
+                0x0000000000000bf4                code_eu100Code
+                0x0000000000000c00                code_eu101Times
+                0x0000000000000c0c                code_eu101Code
+                0x0000000000000c17                code_eu102Code
+                0x0000000000000c22                code_eu103Times
+                0x0000000000000c32                code_eu103Code
+                0x0000000000000c3d                code_eu104Times
+                0x0000000000000c49                code_eu104Code
+                0x0000000000000c54                code_eu105Code
+                0x0000000000000c68                code_eu106Times
+                0x0000000000000c88                code_eu106Code
+                0x0000000000000ca4                code_eu107Times
+                0x0000000000000cb8                code_eu107Code
+                0x0000000000000cc6                code_eu108Times
+                0x0000000000000cd2                code_eu108Code
+                0x0000000000000cdd                code_eu109Times
+                0x0000000000000ced                code_eu109Code
+                0x0000000000000cf8                code_eu110Times
+                0x0000000000000d0c                code_eu110Code
+                0x0000000000000d2b                code_eu111Times
+                0x0000000000000d47                code_eu111Code
+                0x0000000000000d54                code_eu112Times
+                0x0000000000000d6c                code_eu112Code
+                0x0000000000000d80                code_eu113Code
+                0x0000000000000d8b                code_eu114Code
+                0x0000000000000d9c                code_eu115Times
+                0x0000000000000db0                code_eu115Code
+                0x0000000000000dd2                code_eu116Times
+                0x0000000000000de2                code_eu116Code
+                0x0000000000000def                code_eu117Times
+                0x0000000000000e03                code_eu117Code
+                0x0000000000000e0e                code_eu118Times
+                0x0000000000000e1e                code_eu118Code
+                0x0000000000000e29                code_eu119Times
+                0x0000000000000e35                code_eu119Code
+                0x0000000000000e40                code_eu120Times
+                0x0000000000000e54                code_eu120Code
+                0x0000000000000e78                code_eu121Code
+                0x0000000000000e91                code_eu122Code
+                0x0000000000000eb5                code_eu123Times
+                0x0000000000000ec5                code_eu123Code
+                0x0000000000000ed0                code_eu124Times
+                0x0000000000000ee4                code_eu124Code
+                0x0000000000000ef8                code_eu125Times
+                0x0000000000000f10                code_eu125Code
+                0x0000000000000f2f                code_eu126Code
+                0x0000000000000f43                code_eu127Code
+                0x0000000000000f4e                code_eu128Times
+                0x0000000000000f62                code_eu128Code
+                0x0000000000000f6a                code_eu129Times
+                0x0000000000000f8a                code_eu129Code
+                0x0000000000000fa0                code_eu130Code
+                0x0000000000000fb6                code_eu131Times
+                0x0000000000000fc2                code_eu131Code
+                0x0000000000000fcd                code_eu132Code
+                0x0000000000000fd8                code_eu133Code
+                0x0000000000000fe3                code_eu134Times
+                0x0000000000000ff3                code_eu134Code
+                0x0000000000000ffe                code_eu135Times
+                0x000000000000100a                code_eu135Code
+                0x0000000000001015                code_eu136Code
+                0x0000000000001029                code_eu137Times
+                0x0000000000001041                code_eu137Code
+                0x000000000000104f                code_eu138Times
+                0x000000000000105b                code_eu138Code
+                0x0000000000001063                code_eu139Times
+                0x0000000000001077                code_eu139Code
+                0x0000000000001088                EUpowerCodes
+                0x0000000000001088                NApowerCodes
+                0x000000000000119c                . = ALIGN (0x2)
+                0x000000000000119c                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000000000000119c        0x0 linker stubs
+ *(.trampolines*)
+                0x000000000000119c                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x000000000000119c                __ctors_start = .
+ *(.ctors)
+                0x000000000000119c                __ctors_end = .
+                0x000000000000119c                __dtors_start = .
+ *(.dtors)
+                0x000000000000119c                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x000000000000119c        0x0 /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+                0x000000000000119c                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x000000000000119c        0xc /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000000000011a8       0x16 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_copy_data.o)
+                0x00000000000011a8                __do_copy_data
+ .init4         0x00000000000011be       0x10 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_clear_bss.o)
+                0x00000000000011be                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000000000011ce        0x4 /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+ *(.init9)
+ *(.text)
+ .text          0x00000000000011d2        0x2 /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+                0x00000000000011d2                __vector_1
+                0x00000000000011d2                __vector_12
+                0x00000000000011d2                __bad_interrupt
+                0x00000000000011d2                __vector_6
+                0x00000000000011d2                __vector_3
+                0x00000000000011d2                __vector_11
+                0x00000000000011d2                __vector_13
+                0x00000000000011d2                __vector_7
+                0x00000000000011d2                __vector_5
+                0x00000000000011d2                __vector_4
+                0x00000000000011d2                __vector_9
+                0x00000000000011d2                __vector_15
+                0x00000000000011d2                __vector_8
+                0x00000000000011d2                __vector_14
+                0x00000000000011d2                __vector_10
+                0x00000000000011d2                __vector_16
+ .text          0x00000000000011d4      0x29c main.o
+                0x00000000000011d4                read_bits
+                0x000000000000124e                __vector_2
+                0x0000000000001262                delay_ten_us
+                0x000000000000127a                powerDown
+                0x000000000000129a                xmitCodeElement
+                0x00000000000012ca                quickflashLED
+                0x00000000000012d6                quickflashLEDx
+                0x00000000000012f0                turnOffTVs
+                0x00000000000013f0                flashslowLEDx
+                0x000000000000141a                main
+ .text          0x0000000000001470        0x0 WORLDcodes.o
+ .text          0x0000000000001470        0x0 util.o
+ .text          0x0000000000001470        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_udivmodqi4.o)
+ .text          0x0000000000001470        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_exit.o)
+ .text          0x0000000000001470        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_copy_data.o)
+ .text          0x0000000000001470        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_clear_bss.o)
+                0x0000000000001470                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x0000000000001470       0x18 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_udivmodqi4.o)
+                0x0000000000001470                __udivmodqi4
+ .text.libgcc   0x0000000000001488        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000001488        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000001488        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_clear_bss.o)
+                0x0000000000001488                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000000000001488        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_exit.o)
+                0x0000000000001488                exit
+                0x0000000000001488                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000000000001488        0x4 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_exit.o)
+ *(.fini0)
+                0x000000000000148c                _etext = .
+
+.data           0x0000000000800060        0x2 load address 0x000000000000148c
+                0x0000000000800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+ .data          0x0000000000800060        0x0 main.o
+ .data          0x0000000000800060        0x2 WORLDcodes.o
+                0x0000000000800060                num_NAcodes
+                0x0000000000800061                num_EUcodes
+ .data          0x0000000000800062        0x0 util.o
+ .data          0x0000000000800062        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_udivmodqi4.o)
+ .data          0x0000000000800062        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_exit.o)
+ .data          0x0000000000800062        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_copy_data.o)
+ .data          0x0000000000800062        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0000000000800062                . = ALIGN (0x2)
+                0x0000000000800062                _edata = .
+                0x0000000000800062                PROVIDE (__data_end, .)
+
+.bss            0x0000000000800062        0x4
+                0x0000000000800062                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0000000000800062        0x0 /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+ .bss           0x0000000000800062        0x2 main.o
+                0x0000000000800062                bitsleft_r
+                0x0000000000800063                bits_r
+ .bss           0x0000000000800064        0x0 WORLDcodes.o
+ .bss           0x0000000000800064        0x0 util.o
+ .bss           0x0000000000800064        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_udivmodqi4.o)
+ .bss           0x0000000000800064        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_exit.o)
+ .bss           0x0000000000800064        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_copy_data.o)
+ .bss           0x0000000000800064        0x0 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x0000000000800064        0x2 main.o
+                0x0000000000800064                code_ptr
+                0x0000000000800066                PROVIDE (__bss_end, .)
+                0x000000000000148c                __data_load_start = LOADADDR (.data)
+                0x000000000000148e                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0000000000800066        0x0
+                0x0000000000800066                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0000000000800066                PROVIDE (__noinit_end, .)
+                0x0000000000800066                _end = .
+                0x0000000000800066                PROVIDE (__heap_start, .)
+
+.eeprom         0x0000000000810000        0x0
+ *(.eeprom*)
+                0x0000000000810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x0000000000000000      0x6b4
+ *(.stab)
+ .stab          0x0000000000000000      0x6b4 /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+
+.stabstr        0x0000000000000000       0x54
+ *(.stabstr)
+ .stabstr       0x0000000000000000       0x54 /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(tvbgone.elf elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+EUpowerCodes                                      WORLDcodes.o
+                                                  main.o
+NApowerCodes                                      WORLDcodes.o
+__bad_interrupt                                   /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__bss_end                                         /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_clear_bss.o)
+__bss_start                                       /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_clear_bss.o)
+__data_end                                        /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_copy_data.o)
+__data_load_start                                 /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_copy_data.o)
+__data_start                                      /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_copy_data.o)
+__do_clear_bss                                    /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_clear_bss.o)
+                                                  main.o
+__do_copy_data                                    /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_copy_data.o)
+                                                  WORLDcodes.o
+__heap_end                                        /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__init                                            /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__stack                                           /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__udivmodqi4                                      /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_udivmodqi4.o)
+                                                  main.o
+__vector_1                                        /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_10                                       /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_11                                       /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_12                                       /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_13                                       /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_14                                       /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_15                                       /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_16                                       /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_2                                        main.o
+                                                  /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_3                                        /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_4                                        /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_5                                        /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_6                                        /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_7                                        /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_8                                        /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_9                                        /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vector_default                                  /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+__vectors                                         /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+_exit                                             /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_exit.o)
+bits_r                                            main.o
+bitsleft_r                                        main.o
+code_eu000Code                                    WORLDcodes.o
+code_eu000Times                                   WORLDcodes.o
+code_eu001Code                                    WORLDcodes.o
+code_eu001Times                                   WORLDcodes.o
+code_eu002Code                                    WORLDcodes.o
+code_eu002Times                                   WORLDcodes.o
+code_eu004Code                                    WORLDcodes.o
+code_eu004Times                                   WORLDcodes.o
+code_eu005Code                                    WORLDcodes.o
+code_eu005Times                                   WORLDcodes.o
+code_eu006Code                                    WORLDcodes.o
+code_eu006Times                                   WORLDcodes.o
+code_eu007Code                                    WORLDcodes.o
+code_eu007Times                                   WORLDcodes.o
+code_eu008Code                                    WORLDcodes.o
+code_eu011Code                                    WORLDcodes.o
+code_eu012Code                                    WORLDcodes.o
+code_eu012Times                                   WORLDcodes.o
+code_eu013Code                                    WORLDcodes.o
+code_eu013Times                                   WORLDcodes.o
+code_eu015Code                                    WORLDcodes.o
+code_eu015Times                                   WORLDcodes.o
+code_eu016Code                                    WORLDcodes.o
+code_eu016Times                                   WORLDcodes.o
+code_eu017Code                                    WORLDcodes.o
+code_eu017Times                                   WORLDcodes.o
+code_eu018Code                                    WORLDcodes.o
+code_eu019Code                                    WORLDcodes.o
+code_eu019Times                                   WORLDcodes.o
+code_eu020Code                                    WORLDcodes.o
+code_eu020Times                                   WORLDcodes.o
+code_eu021Code                                    WORLDcodes.o
+code_eu022Code                                    WORLDcodes.o
+code_eu024Code                                    WORLDcodes.o
+code_eu025Code                                    WORLDcodes.o
+code_eu025Times                                   WORLDcodes.o
+code_eu026Code                                    WORLDcodes.o
+code_eu026Times                                   WORLDcodes.o
+code_eu027Code                                    WORLDcodes.o
+code_eu028Code                                    WORLDcodes.o
+code_eu028Times                                   WORLDcodes.o
+code_eu029Code                                    WORLDcodes.o
+code_eu029Times                                   WORLDcodes.o
+code_eu030Code                                    WORLDcodes.o
+code_eu031Code                                    WORLDcodes.o
+code_eu031Times                                   WORLDcodes.o
+code_eu032Code                                    WORLDcodes.o
+code_eu032Times                                   WORLDcodes.o
+code_eu033Code                                    WORLDcodes.o
+code_eu033Times                                   WORLDcodes.o
+code_eu034Code                                    WORLDcodes.o
+code_eu036Code                                    WORLDcodes.o
+code_eu037Code                                    WORLDcodes.o
+code_eu037Times                                   WORLDcodes.o
+code_eu038Code                                    WORLDcodes.o
+code_eu038Times                                   WORLDcodes.o
+code_eu039Code                                    WORLDcodes.o
+code_eu039Times                                   WORLDcodes.o
+code_eu040Code                                    WORLDcodes.o
+code_eu040Times                                   WORLDcodes.o
+code_eu041Code                                    WORLDcodes.o
+code_eu041Times                                   WORLDcodes.o
+code_eu042Code                                    WORLDcodes.o
+code_eu043Code                                    WORLDcodes.o
+code_eu043Times                                   WORLDcodes.o
+code_eu044Code                                    WORLDcodes.o
+code_eu045Code                                    WORLDcodes.o
+code_eu045Times                                   WORLDcodes.o
+code_eu046Code                                    WORLDcodes.o
+code_eu046Times                                   WORLDcodes.o
+code_eu047Code                                    WORLDcodes.o
+code_eu047Times                                   WORLDcodes.o
+code_eu048Code                                    WORLDcodes.o
+code_eu049Code                                    WORLDcodes.o
+code_eu049Times                                   WORLDcodes.o
+code_eu050Code                                    WORLDcodes.o
+code_eu050Times                                   WORLDcodes.o
+code_eu051Code                                    WORLDcodes.o
+code_eu051Times                                   WORLDcodes.o
+code_eu052Code                                    WORLDcodes.o
+code_eu052Times                                   WORLDcodes.o
+code_eu053Code                                    WORLDcodes.o
+code_eu054Code                                    WORLDcodes.o
+code_eu054Times                                   WORLDcodes.o
+code_eu055Code                                    WORLDcodes.o
+code_eu056Code                                    WORLDcodes.o
+code_eu056Times                                   WORLDcodes.o
+code_eu058Code                                    WORLDcodes.o
+code_eu059Code                                    WORLDcodes.o
+code_eu059Times                                   WORLDcodes.o
+code_eu060Code                                    WORLDcodes.o
+code_eu060Times                                   WORLDcodes.o
+code_eu061Code                                    WORLDcodes.o
+code_eu062Code                                    WORLDcodes.o
+code_eu063Code                                    WORLDcodes.o
+code_eu064Code                                    WORLDcodes.o
+code_eu064Times                                   WORLDcodes.o
+code_eu065Code                                    WORLDcodes.o
+code_eu065Times                                   WORLDcodes.o
+code_eu066Code                                    WORLDcodes.o
+code_eu067Code                                    WORLDcodes.o
+code_eu067Times                                   WORLDcodes.o
+code_eu068Code                                    WORLDcodes.o
+code_eu068Times                                   WORLDcodes.o
+code_eu069Code                                    WORLDcodes.o
+code_eu069Times                                   WORLDcodes.o
+code_eu070Code                                    WORLDcodes.o
+code_eu071Code                                    WORLDcodes.o
+code_eu071Times                                   WORLDcodes.o
+code_eu072Code                                    WORLDcodes.o
+code_eu072Times                                   WORLDcodes.o
+code_eu073Code                                    WORLDcodes.o
+code_eu074Code                                    WORLDcodes.o
+code_eu075Code                                    WORLDcodes.o
+code_eu075Times                                   WORLDcodes.o
+code_eu076Code                                    WORLDcodes.o
+code_eu076Times                                   WORLDcodes.o
+code_eu077Code                                    WORLDcodes.o
+code_eu078Code                                    WORLDcodes.o
+code_eu078Times                                   WORLDcodes.o
+code_eu079Code                                    WORLDcodes.o
+code_eu079Times                                   WORLDcodes.o
+code_eu080Code                                    WORLDcodes.o
+code_eu080Times                                   WORLDcodes.o
+code_eu081Code                                    WORLDcodes.o
+code_eu081Times                                   WORLDcodes.o
+code_eu082Code                                    WORLDcodes.o
+code_eu082Times                                   WORLDcodes.o
+code_eu083Code                                    WORLDcodes.o
+code_eu083Times                                   WORLDcodes.o
+code_eu084Code                                    WORLDcodes.o
+code_eu084Times                                   WORLDcodes.o
+code_eu085Code                                    WORLDcodes.o
+code_eu085Times                                   WORLDcodes.o
+code_eu086Code                                    WORLDcodes.o
+code_eu086Times                                   WORLDcodes.o
+code_eu087Code                                    WORLDcodes.o
+code_eu087Times                                   WORLDcodes.o
+code_eu088Code                                    WORLDcodes.o
+code_eu088Times                                   WORLDcodes.o
+code_eu089Code                                    WORLDcodes.o
+code_eu090Code                                    WORLDcodes.o
+code_eu090Times                                   WORLDcodes.o
+code_eu091Code                                    WORLDcodes.o
+code_eu091Times                                   WORLDcodes.o
+code_eu092Code                                    WORLDcodes.o
+code_eu092Times                                   WORLDcodes.o
+code_eu093Code                                    WORLDcodes.o
+code_eu093Times                                   WORLDcodes.o
+code_eu094Code                                    WORLDcodes.o
+code_eu094Times                                   WORLDcodes.o
+code_eu095Code                                    WORLDcodes.o
+code_eu096Code                                    WORLDcodes.o
+code_eu096Times                                   WORLDcodes.o
+code_eu097Code                                    WORLDcodes.o
+code_eu098Code                                    WORLDcodes.o
+code_eu098Times                                   WORLDcodes.o
+code_eu099Code                                    WORLDcodes.o
+code_eu099Times                                   WORLDcodes.o
+code_eu100Code                                    WORLDcodes.o
+code_eu101Code                                    WORLDcodes.o
+code_eu101Times                                   WORLDcodes.o
+code_eu102Code                                    WORLDcodes.o
+code_eu103Code                                    WORLDcodes.o
+code_eu103Times                                   WORLDcodes.o
+code_eu104Code                                    WORLDcodes.o
+code_eu104Times                                   WORLDcodes.o
+code_eu105Code                                    WORLDcodes.o
+code_eu106Code                                    WORLDcodes.o
+code_eu106Times                                   WORLDcodes.o
+code_eu107Code                                    WORLDcodes.o
+code_eu107Times                                   WORLDcodes.o
+code_eu108Code                                    WORLDcodes.o
+code_eu108Times                                   WORLDcodes.o
+code_eu109Code                                    WORLDcodes.o
+code_eu109Times                                   WORLDcodes.o
+code_eu110Code                                    WORLDcodes.o
+code_eu110Times                                   WORLDcodes.o
+code_eu111Code                                    WORLDcodes.o
+code_eu111Times                                   WORLDcodes.o
+code_eu112Code                                    WORLDcodes.o
+code_eu112Times                                   WORLDcodes.o
+code_eu113Code                                    WORLDcodes.o
+code_eu114Code                                    WORLDcodes.o
+code_eu115Code                                    WORLDcodes.o
+code_eu115Times                                   WORLDcodes.o
+code_eu116Code                                    WORLDcodes.o
+code_eu116Times                                   WORLDcodes.o
+code_eu117Code                                    WORLDcodes.o
+code_eu117Times                                   WORLDcodes.o
+code_eu118Code                                    WORLDcodes.o
+code_eu118Times                                   WORLDcodes.o
+code_eu119Code                                    WORLDcodes.o
+code_eu119Times                                   WORLDcodes.o
+code_eu120Code                                    WORLDcodes.o
+code_eu120Times                                   WORLDcodes.o
+code_eu121Code                                    WORLDcodes.o
+code_eu122Code                                    WORLDcodes.o
+code_eu123Code                                    WORLDcodes.o
+code_eu123Times                                   WORLDcodes.o
+code_eu124Code                                    WORLDcodes.o
+code_eu124Times                                   WORLDcodes.o
+code_eu125Code                                    WORLDcodes.o
+code_eu125Times                                   WORLDcodes.o
+code_eu126Code                                    WORLDcodes.o
+code_eu127Code                                    WORLDcodes.o
+code_eu128Code                                    WORLDcodes.o
+code_eu128Times                                   WORLDcodes.o
+code_eu129Code                                    WORLDcodes.o
+code_eu129Times                                   WORLDcodes.o
+code_eu130Code                                    WORLDcodes.o
+code_eu131Code                                    WORLDcodes.o
+code_eu131Times                                   WORLDcodes.o
+code_eu132Code                                    WORLDcodes.o
+code_eu133Code                                    WORLDcodes.o
+code_eu134Code                                    WORLDcodes.o
+code_eu134Times                                   WORLDcodes.o
+code_eu135Code                                    WORLDcodes.o
+code_eu135Times                                   WORLDcodes.o
+code_eu136Code                                    WORLDcodes.o
+code_eu137Code                                    WORLDcodes.o
+code_eu137Times                                   WORLDcodes.o
+code_eu138Code                                    WORLDcodes.o
+code_eu138Times                                   WORLDcodes.o
+code_eu139Code                                    WORLDcodes.o
+code_eu139Times                                   WORLDcodes.o
+code_na000Code                                    WORLDcodes.o
+code_na000Times                                   WORLDcodes.o
+code_na004Code                                    WORLDcodes.o
+code_na004Times                                   WORLDcodes.o
+code_na005Code                                    WORLDcodes.o
+code_na005Times                                   WORLDcodes.o
+code_na009Code                                    WORLDcodes.o
+code_na009Times                                   WORLDcodes.o
+code_na021Code                                    WORLDcodes.o
+code_na021Times                                   WORLDcodes.o
+code_na022Code                                    WORLDcodes.o
+code_na022Times                                   WORLDcodes.o
+code_na031Code                                    WORLDcodes.o
+code_na031Times                                   WORLDcodes.o
+code_ptr                                          main.o
+delay_ten_us                                      main.o
+exit                                              /usr/lib/gcc/avr/4.3.5/avr25/libgcc.a(_exit.o)
+                                                  /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+flashslowLEDx                                     main.o
+main                                              main.o
+                                                  /usr/lib/gcc/avr/4.3.5/../../../avr/lib/avr25/crttn84.o
+num_EUcodes                                       WORLDcodes.o
+                                                  main.o
+num_NAcodes                                       WORLDcodes.o
+powerDown                                         main.o
+quickflashLED                                     main.o
+quickflashLEDx                                    main.o
+read_bits                                         main.o
+turnOffTVs                                        main.o
+xmitCodeElement                                   main.o
