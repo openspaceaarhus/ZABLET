@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPCB (2010-05-05 BZR 2356)-stable date = 04-01-2011 22:34:46
+Cmp-Mod V01 Created by CvPCB (2010-12-18 BZR 2669)-stable date = 2011-02-06T22:12:46 CET
 
 BeginCmp
 TimeStamp = /4CC9376A;
@@ -10,7 +10,7 @@ EndCmp
 BeginCmp
 TimeStamp = /4CBC07E1;
 Reference = C1;
-ValeurCmp = 100µ;
+ValeurCmp = ;
 IdModule  = C1V7H-reverse;
 EndCmp
 
@@ -172,70 +172,70 @@ BeginCmp
 TimeStamp = /4CBC15B0;
 Reference = R1;
 ValeurCmp = 1K;
-IdModule  = R3;
+IdModule  = R3-5-big_pads;
 EndCmp
 
 BeginCmp
 TimeStamp = /4CBC05DA;
 Reference = R2;
 ValeurCmp = 125;
-IdModule  = R3;
+IdModule  = R3-5-big_pads;
 EndCmp
 
 BeginCmp
 TimeStamp = /4CBC05D7;
 Reference = R3;
 ValeurCmp = 125;
-IdModule  = R3;
+IdModule  = R3-5-big_pads;
 EndCmp
 
 BeginCmp
 TimeStamp = /4CBC05CE;
 Reference = R4;
 ValeurCmp = 125;
-IdModule  = R3;
+IdModule  = R3-5-big_pads;
 EndCmp
 
 BeginCmp
 TimeStamp = /4CBC05CB;
 Reference = R5;
 ValeurCmp = 125;
-IdModule  = R3;
+IdModule  = R3-5-big_pads;
 EndCmp
 
 BeginCmp
 TimeStamp = /4CBC05A8;
 Reference = R6;
 ValeurCmp = 125;
-IdModule  = R3;
+IdModule  = R3-5-big_pads;
 EndCmp
 
 BeginCmp
 TimeStamp = /4CBC05BE;
 Reference = R7;
 ValeurCmp = 125;
-IdModule  = R3;
+IdModule  = R3-5-big_pads;
 EndCmp
 
 BeginCmp
 TimeStamp = /4CBC0614;
 Reference = R8;
 ValeurCmp = 125;
-IdModule  = R3;
+IdModule  = R3-5-big_pads;
 EndCmp
 
 BeginCmp
 TimeStamp = /4CBC0618;
 Reference = R9;
 ValeurCmp = 125;
-IdModule  = R3;
+IdModule  = R3-5-big_pads;
 EndCmp
 
 BeginCmp
 TimeStamp = /4CBDE3D1;
 Reference = R10;
 ValeurCmp = 1K;
-IdModule  = R3;
+IdModule  = R3-5-big_pads;
 EndCmp
 
 BeginCmp
