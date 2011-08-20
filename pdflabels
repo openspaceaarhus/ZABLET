@@ -1,0 +1,72 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use PDF::API2;
+use GD::Barcode::QRcode;
+use FindBin qw($Bin $Script);
+
+my ($type, $start) = ('zablet', '0');
+my $bgf = "$Bin/$type.png";
+die "Background image not found: $bgf" unless -f $bgf;
+
+sub mm2ps {
+    my $mm = shift;
+    return $mm*72/25.4;
+}
+
+my $rows = 7;
+my $cols = 3;
+my $xoff = 8;
+my $yoff = 14.5;
+my $xsize = 63.5;
+my $ysize = 38.1;
+my $xpitch = 65.5;
+my $ypitch = 38.1;
+
+my $pdf = PDF::API2->new();
+my $hb = $pdf->corefont('Helvetica-Bold');
+#my $bender = $pdf->ttfont("$Bin/bender/Bender Black.otf");
+my $bg = $pdf->image_png($bgf);
+
+my $id = $start;
+for my $pn (1..1) {
+    my $page = $pdf->page();
+    $page->mediabox('A4');
+    
+    my $text = $page->text();
+    my $gfx = $page->gfx;
+    
+    for my $row (0..$rows-1) {
+	my $y = $yoff + ($rows-1-$row)*$ypitch;
+	
+	for my $col (0..$cols-1) {
+	    my $x = $xoff + $col * $xpitch;
+	    
+	    my $gfx = $page->gfx;
+	    $gfx->image( $bg, mm2ps($x), mm2ps($y), 
+			 mm2ps($xsize), mm2ps($ysize) );
+	    
+	    my $url = "HTTP://ZABLET.OSAA.DK";	    
+	    $id++;
+	    my $qr = $pdf->image_gd(GD::Barcode::QRcode->new(
+				    $url,
+					{ Ecc => 'Q',
+					  Version=>2,
+					  ModuleSize => 1}		 
+				    )->plot, -lossless => 1);
+	    $gfx->image($qr, mm2ps($x+3), mm2ps($y+3+2), 
+			mm2ps(30), mm2ps(30));
+	    
+	    $gfx->textlabel(mm2ps($x+3+30/2), mm2ps($y+3),
+			    $hb, mm2ps(2), lc($url),
+			    -align => 'center',
+		);
+	}
+    }
+}
+
+my $out = "labels-$type.pdf";
+$pdf->saveas($out);
+system("okular $out");
+
+exit 0;
