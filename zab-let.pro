@@ -1,14 +1,9 @@
-update=2011-01-13T19:28:34 CET
+update=2011-02-07T16:30:43 CET
 version=1
 last_client=pcbnew
 [cvpcb]
 version=1
-NetITyp=0
-NetIExt=.net
-PkgIExt=.pkg
-NetDir=
-LibDir=
-NetType=0
+NetIExt=net
 [cvpcb/libraries]
 EquName1=devcms
 [general]
@@ -43,11 +38,7 @@ offY_E=0
 RptD_X=0
 RptD_Y=100
 RptLab=1
-SimCmd=
-UseNetN=0
 LabSize=60
-PrintMonochrome=0
-ShowSheetReferenceAndTitleBlock=0
 [eeschema/libraries]
 LibName1=power
 LibName2=device
@@ -79,12 +70,10 @@ LibName27=opto
 LibName28=atmel
 LibName29=contrib
 LibName30=valves
-LibName31=attiny
-LibName32=atmel_2
-LibName33=Resonator
+LibName31=Resonator
 [pcbnew]
 version=1
-PadDrlX=320
+PadDrlX=374
 PadDimH=800
 PadDimV=800
 BoardThickness=630
