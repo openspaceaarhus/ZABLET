@@ -1,0 +1,8 @@
+*.o
+*.d
+tvbgone.elf
+tvbgone.sym
+tvbgone.lss
+tvbgone.map
+tvbgone.hex
+tvbgone.eep

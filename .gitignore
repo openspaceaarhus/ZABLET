@@ -1,0 +1,11 @@
+*.cmd
+*.net
+*.new.pcb
+*.pcb-
+*.pcb.bak*
+*.pcb.orig
+*~
+bottom.png
+top.png
+zablet2.ps
+zablet2.pdf
