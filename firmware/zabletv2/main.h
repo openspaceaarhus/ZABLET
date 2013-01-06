@@ -53,4 +53,17 @@ extern const struct IrCode * const EUpowerCodes[];
 extern const uint8_t num_EUcodes;
 #endif
 
+struct eeprom_data_t {
+	uint16_t	pre_delay;	// Delay from switch detect before starting show
+	uint16_t	int_delay;	// Inter-pixel delay
+	uint16_t	nelem;		// Number of elements of data
+	uint8_t		data[];
+};
+
+#ifdef USE_EEPROM
+extern const struct eeprom_data_t pov_data;
+#else
+extern const struct eeprom_data_t pov_data;
+#endif
+
 #endif

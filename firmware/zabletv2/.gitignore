@@ -7,3 +7,5 @@ tvbgone.map
 tvbgone.hex
 tvbgone.eep
 *.lst
+*.eeprom.hex
+*.eeprom.c

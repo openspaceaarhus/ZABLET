@@ -13,12 +13,16 @@ TARGET = tvbgone
 #EU_CODES=1
 ALL_CODES=1
 
+USE_EEPROM=1
+PRE_DELAY = 5000
+INT_DELAY = 200
+
 # Optimization level, can be [0, 1, 2, 3, s]. 0 turns off optimization.
 # (Note: 3 is not always the best optimization level. See avr-libc FAQ.)
 OPT = s
 
 # List C source files here. (C dependencies are automatically generated.)
-SRC = main.c WORLDcodes.c util.c
+SRC = main.c WORLDcodes.c util.c zablet.eeprom.c
 
 # List Assembler source files here.
 # Make them always end in a capital .S.  Files ending in a lowercase .s
@@ -58,6 +62,13 @@ ifdef NA_CODES
 endif
 ifdef ALL_CODES
   CFLAGS += -DALL_CODES
+endif
+
+ifdef USE_EEPROM
+  CFLAGS += -DUSE_EEPROM
+  MEMTYPE = EEMEM
+else
+  MEMTYPE = PROGMEM
 endif
 
 # Optional assembler flags.
@@ -188,6 +199,7 @@ ALL_CFLAGS = -mmcu=$(MCU) -I. $(CFLAGS)
 ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 
 
+.SUFFIXES : .raw .png .eeprom.c .eeprom.hex
 
 # Default target.
 all: begin gccversion sizebefore $(TARGET).elf $(TARGET).hex $(TARGET).eep \
@@ -319,9 +331,22 @@ read-fuse:
 	$(CC) -c $(ALL_ASFLAGS) $< -o $@
 
 
+%.raw : %.png
+	convert $< -depth 1 gray:$@
 
+%.eeprom.c : %.raw
+	echo "#include <avr/eeprom.h>" > $@
+	echo "#include <avr/pgmspace.h>" >> $@
+	echo "#include \"main.h\"" >> $@
+	echo "const struct eeprom_data_t pov_data $(MEMTYPE) = {" >> $@
+	echo " $(PRE_DELAY), $(INT_DELAY), $$(wc -c $< | cut -d' ' -f1), {" >> $@
+	hexdump -ve'"\t" 1/1 "0x%02x," "\n"' $< >> $@
+	echo "} };" >> $@
 
-
+%.eeprom.hex : %.eeprom.o
+	$(OBJCOPY) -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+	--change-section-lma .eeprom=0 -O $(FORMAT) $< $@
+	$(AVRDUDE) $(AVRDUDE_FLAGS) -U eeprom:w:$@
 
 # Target: clean project.
 clean: begin clean_list finished end
@@ -344,6 +369,9 @@ clean_list :
 	$(REMOVE) $(LST)
 	$(REMOVE) $(SRC:.c=.s)
 	$(REMOVE) $(SRC:.c=.d)
+	$(REMOVE) *.eeprom.hex
+	$(REMOVE) *.eeprom.c
+	$(REMOVE) *.raw
 
 
 # Automatically generate C source code dependencies.
