@@ -1,1 +1,13 @@
-Test change
+Zab-Let
+-------
+
+Zap all TVs in your neighborhood.
+
+This project is a derivative of the Adafruit TV-B-Gone project and includes a
+POV too. The Zab-Let device was successfully used in a soldering workshop for
+newbies. Version 2 fixes a few problems and extends the firmware to include the
+POV part as a default.
+
+See: http://zablet.osaa.dk
+and our mailing list: http://groups.google.com/group/openspaceaarhus?hl=en
+
