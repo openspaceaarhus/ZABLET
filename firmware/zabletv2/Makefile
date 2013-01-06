@@ -10,7 +10,8 @@ TARGET = tvbgone
 
 # Codes to add to the list
 #NA_CODES=1
-EU_CODES=1
+#EU_CODES=1
+ALL_CODES=1
 
 # Optimization level, can be [0, 1, 2, 3, s]. 0 turns off optimization.
 # (Note: 3 is not always the best optimization level. See avr-libc FAQ.)
@@ -54,6 +55,9 @@ ifdef EU_CODES
 endif
 ifdef NA_CODES
   CFLAGS += -DNA_CODES
+endif
+ifdef ALL_CODES
+  CFLAGS += -DALL_CODES
 endif
 
 # Optional assembler flags.
@@ -106,7 +110,7 @@ AVRDUDE_PROGRAMMER = avrispmkII
 AVRDUDE_PORT = usb
 
 AVRDUDE_WRITE_FLASH = -B 1 -U flash:w:$(TARGET).hex
-#AVRDUDE_WRITE_EEPROM = -U eeprom:w:$(TARGET).eep
+AVRDUDE_WRITE_EEPROM = -U eeprom:w:$(TARGET).eep
 
 AVRDUDE_FLAGS = -p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER)
 

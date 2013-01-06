@@ -5,13 +5,14 @@
 #define FLASHLED	PA0
 #define BOLED		PA1
 #define IRLED		PB2
+#define BUTTONPIN	PA7
 
 // Two regions!
 #define US 1
 #define EU 0
 
 // Lets us calculate the size of the NA/EU databases
-#define NUM_ELEM(x) (sizeof (x) / sizeof (*(x)));
+#define NUM_ELEM(x) (sizeof (x) / sizeof (*(x)))
 
 // set define to 0 to turn off debug output
 #define DEBUG 0
@@ -39,9 +40,17 @@ struct IrCode {
   uint8_t codes[];
 };
 
+#ifdef ALL_CODES
+extern const struct IrCode * const AllpowerCodes[];
+extern const uint16_t num_Allcodes;
+#endif
+#ifdef NA_CODES
 extern const struct IrCode * const NApowerCodes[];
-extern const struct IrCode * const EUpowerCodes[];
 extern const uint8_t num_NAcodes;
+#endif
+#ifdef EU_CODES
+extern const struct IrCode * const EUpowerCodes[];
 extern const uint8_t num_EUcodes;
+#endif
 
 #endif
