@@ -4,8 +4,6 @@ tvbgone.elf
 tvbgone.sym
 tvbgone.lss
 tvbgone.map
-tvbgone.hex
-tvbgone.eep
 *.lst
 *.eeprom.hex
 *.eeprom.c
