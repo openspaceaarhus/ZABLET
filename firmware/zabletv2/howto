@@ -1,0 +1,18 @@
+okay.
+So you're stuck.
+
+Read this..
+
+"make full" should solve all your problems .. 
+
+Device ID: 0x000000 ?? -> Did you do "make burn-fuse" ?
+
+how to do the text: Easiest way is to run "maketext.sh <whatever>". if this doesn't work, try editing zablet.png
+
+
+
+burn only text from whatever.png:
+
+"make whatever.eeprom.hex"
+
+if this doesnt work, rename whatever.png to zablet.png and do a "make full" .. and stop thinking about it
