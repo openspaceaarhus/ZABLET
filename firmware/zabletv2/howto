@@ -7,7 +7,7 @@ Read this..
 
 Device ID: 0x000000 ?? -> Did you do "make burn-fuse" ?
 
-how to do the text: Easiest way is to run "maketext.sh <whatever>". if this doesn't work, try editing zablet.png
+how to do the text: Easiest way is to run "./mktext.sh <whatever>". if this doesn't work, try editing zablet.png
 
 
 
